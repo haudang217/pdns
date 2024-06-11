@@ -2,6 +2,7 @@ import dns.resolver
 import dns.reversename
 import dns.query
 from datetime import datetime
+import time
 
 # Hàm thực hiện reverse DNS lookup
 def reverse_dns_lookup(ip_address, dns_server, dns_port):
@@ -27,18 +28,21 @@ def reverse_dns_lookup(ip_address, dns_server, dns_port):
     except Exception as e:
         return f"Không thể thực hiện reverse DNS lookup cho {ip_address}: {e}"
 
-# Địa chỉ IP cần reverse lookup
-ip_address = '10.114.0.63'
+def main():
+    while True:
+    # Địa chỉ IP cần reverse lookup
+        ip_address = '10.114.0.63'
+    # Thông tin DNS server
+        dns_server = '49.213.77.200'
+        dns_port = 5300
+    # Thực hiện reverse DNS lookup và in kết quả
+        hostname = reverse_dns_lookup(ip_address, dns_server, dns_port)
+    # Ghi kết quả vào tệp với thời gian ghi
+        with open('resultReverseDNS.txt', 'a') as file:
+            timestamp = datetime.now().strftime('%d-%m-%Y %H:%M:%S')
+            file.write(f"{timestamp} - Hostname cho {ip_address} là: {hostname}\n")
+        time.sleep(300)  # 5 phút
 
-# Thông tin DNS server
-dns_server = '49.213.77.200'
-dns_port = 5300
+if __name__ == "__main__":
+    main()
 
-# Thực hiện reverse DNS lookup và in kết quả
-hostname = reverse_dns_lookup(ip_address, dns_server, dns_port)
-print(f"Hostname cho {ip_address} là: {hostname}")
-
-# Ghi kết quả vào tệp với thời gian ghi
-with open('resultReverseDNS.txt', 'a') as file:
-    timestamp = datetime.now().strftime('%d-%m-%Y %H:%M:%S')
-    file.write(f"{timestamp} - Hostname cho {ip_address} là: {hostname}\n")
