@@ -39,6 +39,6 @@ hostname = reverse_dns_lookup(ip_address, dns_server, dns_port)
 print(f"Hostname cho {ip_address} là: {hostname}")
 
 # Ghi kết quả vào tệp với thời gian ghi
-with open('result.txt', 'a') as file:
-    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+with open('resultReverseDNS.txt', 'a') as file:
+    timestamp = datetime.now().strftime('%d-%m-%Y %H:%M:%S')
     file.write(f"{timestamp} - Hostname cho {ip_address} là: {hostname}\n")

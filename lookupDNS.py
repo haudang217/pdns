@@ -24,7 +24,7 @@ def lookup_dns(domain):
         return [str(e)]
 
 def write_to_file(domain, result):
-    with open('result.txt', 'a') as f:
+    with open('resultLookupDNS.txt', 'a') as f:
         timestamp = datetime.now().strftime('%d-%m-%Y %H:%M:%S')
         f.write(f"{timestamp} - {domain}: {result}\n")
 
