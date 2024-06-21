@@ -51,11 +51,15 @@ save_to_json(data, 'db.json')
 ##Checking
 with open("db.json", 'r') as f:
     data1 = json.load(f)
-list_appeared = []
+list_appeared = set()
+new_data = []
 for record in data1:
     key = list(record.keys())[0]
     #print(key)
     record_name = record[key]['record_name']
-    if record_name in list_appeared:
+    if record_name not in list_appeared:
+        new_data.append(record)
+        list_appeared.add(record_name)
+    else:
         print(f"Duplicate data in: {record_name}")
-    list_appeared.append(record_name)
+save_to_json(new_data, 'db1.json')

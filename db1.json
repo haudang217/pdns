@@ -8600,16 +8600,6 @@
         }
     },
     {
-        "23.107.39.85": {
-            "description": "raQrbdMJjrYk",
-            "interface": "ae99",
-            "device": "MX480-670",
-            "action_flag": 2,
-            "ip_mgmt": "10.10.10.670",
-            "record_name": "ae99-MX480-670-10.10.10.670.dc.vngcloud.vn"
-        }
-    },
-    {
         "90.36.245.193": {
             "description": "jzZpuwBwIATU",
             "interface": "ae532",
